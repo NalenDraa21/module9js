@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Form</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body><br/>
+
+<div class="w3-container">
+
+    <p>First Name</p>
+    <input class="w3-input w3-border" id="fname" type="text">
+
+    <p>Last Name</p>
+    <input class="w3-input w3-border" id="lname" type="text">
+
+    <p>Country</p>
+    <select class="w3-input w3-border" id="country">
+        <option value="">Pilih</option>
+        <option>Indonesia</option>
+        <option>Malaysia</option>
+    </select>
+
+    <p>Email</p>
+    <input class="w3-input w3-border" id="email" type="text">
+
+    <p>Phone</p>
+    <input class="w3-input w3-border" id="phone" type="text">
+
+    <p>Password</p>
+    <input class="w3-input w3-border" id="password" type="password">
+
+    <p>Confirm Password</p>
+    <input class="w3-input w3-border" id="confirmPassword" type="password">
+
+    <p>
+        <input type="checkbox" id="terms"> Setuju
+    </p>
+
+    <p>
+        <button class="w3-button w3-blue" onclick="enter()">Enter</button>
+    </p>
+
+    <hr>
+
+    <p id="result"></p>
+
+</div>
+
+<script>
+function enter() {
+
+    var fn = document.getElementById("fname").value;
+    var ln = document.getElementById("lname").value;
+    var c  = document.getElementById("country").value;
+    var e  = document.getElementById("email").value;
+    var p  = document.getElementById("phone").value;
+    var pw = document.getElementById("password").value;
+    var cp = document.getElementById("confirmPassword").value;
+    var t  = document.getElementById("terms").checked;
+
+    var hasil = "";
+    hasil += "Nama: " + fn + " " + ln + "<br>";
+    hasil += "Country: " + c + "<br>";
+    hasil += "Email: " + e + "<br>";
+    hasil += "Phone: " + p + "<br>";
+    hasil += "Terms: " + (t ? "Ya" : "Tidak") + "<br>";
+
+    if (pw == cp && pw != "") {
+        hasil += "Password cocok";
+    } else {
+        hasil += "Password tidak cocok";
+    }
+
+    document.getElementById("result").innerHTML = hasil;
+}
+</script>
+
+</body>
+</html>
