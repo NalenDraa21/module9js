@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Javascript</title>
+
+        <style>
+            body {
+                transition: 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <button onclick="applyColor()">Ubah Warna</button>
+
+        <script type="text/javascript">
+           var list= [];
+           var hex= "0123456789ABCDEF";
+           var counter=0;
+           var result=[];
+           
+           result.push("#");
+
+           function applyColor() {
+
+               list = [];
+               counter = 0;
+               result = [];
+
+               result.push("#");
+
+               while(counter<6){
+                    list.push(Math.floor(Math.random()*16));
+                    counter+=1;
+               }
+
+               for(var i=0; i<list.length;i++){
+                    result.push(hex[list[i]]);
+               }
+               console.log(result.join(""));
+
+               document.body.style.backgroundColor = result.join("");
+           }
+        </script>
+
+    </body>
+</html>

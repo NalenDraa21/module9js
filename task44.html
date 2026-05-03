@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Javascript</title>
+    </head>
+    <body style="margin:0;background:black;color:white;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-size:50px">
+
+        <div id="time">00:00:00:00</div>
+
+        <div style="margin-top:20px">
+            <button onclick="start()" style="background:green;color:white;padding:10px">Start</button>
+            <button onclick="stop()" style="background:red;color:white;padding:10px">Stop</button>
+            <button onclick="reset()" style="background:gray;color:white;padding:10px">Reset</button>
+        </div>
+
+    </body>
+    <script>
+    let t = 0
+    let jalan = null
+
+    function tampil(){
+        let ms = t % 100
+        let s = Math.floor(t/100) % 60
+        let m = Math.floor(t/6000) % 60
+        let h = Math.floor(t/360000)
+
+        document.getElementById("time").innerHTML =
+        (h<10?"0"+h:h)+":"+
+        (m<10?"0"+m:m)+":"+
+        (s<10?"0"+s:s)+":"+
+        (ms<10?"0"+ms:ms)
+    }
+
+    function start(){
+        if(jalan) return
+        jalan = setInterval(function(){
+            t++
+            tampil()
+        },10)
+    }
+
+    function stop(){
+        clearInterval(jalan)
+        jalan = null
+    }
+
+    function reset(){
+        t = 0
+        tampil()
+    }
+    </script>
+</html>
